@@ -1,0 +1,119 @@
+﻿
+<div class="container">
+    <div style="width:650px; margin: auto;">
+        <h1>Welcome to ABC Movie Page !!! </h1>
+    </div>
+</div>
+<div class="container">
+    <div class="bd-example" data-example-id="" style="width:100%; margin-left:auto!important; margin-right:auto">
+        <h4>Search Movies here:</h4>
+        <input id="autocomplete" kendo-auto-complete
+                k-options="customOptions" style="width: 600px" /><button class="btn btn-default" data-ng-click="search()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        <small class="help-block">Start typing the name of the movie - minimum 2 letters</small>
+        <br />
+        <div class="bd-example">
+            <small class="help-block">Click on Movie Poster for Detail Information</small>
+            <div kendo-list-view id="listView" k-data-source="source">
+                <div class="row col-sm-3" k-template>
+                    <div class="row"><img check-image width="300" ng-click="DetailView()" height="420" ng-src="{{dataItem.Poster}}" alt="{{dataItem.Title}} image" /></div>
+                    <h4><span>{{ dataItem.Title }} - {{ dataItem.Type }}</span></h4>
+                </div>
+            </div>
+            <div kendo-pager k-data-source="source"></div>
+        </div>
+    </div>
+
+    <div kendo-window="detailWindow" k-title="'Movie Detail'"
+         k-width="1150" k-height="600" k-visible="false" k-centered="true"
+         k-on-open="detailWindowVisible = true" k-on-close="detailWindowVisible = false">
+        <form name="movieForm">
+            <table>
+                <tr>
+                    <td>
+                        <div class="row col-sm-4" style="margin-left:10px">
+                            <img width="300" height="450" ng-src="{{movie.Poster}}" alt="{{movie.Title}} image" />
+                        </div>
+                    </td>
+                    <td>
+                        <fieldset style="margin-left:10px" class="form-group">
+                            <label for="title">Title :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Title">
+                        </fieldset>
+                        <fieldset style="margin-left:10px" class="form-group">
+                            <label for="title">Year :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Year">
+                        </fieldset>
+                        <fieldset style="margin-left:10px" class="form-group">
+                            <label for="title">Runtime :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Runtime">
+                        </fieldset>
+                        <fieldset style="margin-left:10px" class="form-group">
+                            <label for="title">Genre :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Genre">
+                        </fieldset>
+                        <fieldset style="margin-left:10px" class="form-group">
+                            <label for="title">Director :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Director">
+                        </fieldset>
+                        <fieldset style="margin-left:10px" class="form-group">
+                            <label for="title">Writer :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Writer">
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Actors :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Actors">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Plot :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Plot">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Language :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Language">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Country :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Country">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Awards :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Awards">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Poster :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Poster">
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Metascore :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Metascore">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">imdbRating :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.imdbRating">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">imdbVotes :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.imdbVotes">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">imdbID :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.imdbID">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Type :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Type">
+                        </fieldset>
+                        <fieldset style="margin-left:50px" class="form-group">
+                            <label for="title">Response :</label>
+                            <input type="text" class="form-control col-sm-12" data-ng-model="movie.Response">
+                        </fieldset>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
